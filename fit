@@ -1,0 +1,133 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPGo2gv/DeBb71h4UvK912A",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Dhruv-san/Cortingdeath/blob/main/fit\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "w2SgFLKMo4T4"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "rks"
+      ],
+      "metadata": {
+        "id": "MSU3vdv51MFo"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "ycM8fYX-z90_"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 0
+        },
+        "collapsed": true,
+        "id": "b-JTYJebc3UA",
+        "outputId": "f3915a9b-dac8-42ff-af80-7e1a33aec846"
+      },
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "SyntaxError",
+          "evalue": "incomplete input (<ipython-input-2-e1ca3a235f89>, line 15)",
+          "traceback": [
+            "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-2-e1ca3a235f89>\"\u001b[0;36m, line \u001b[0;32m15\u001b[0m\n\u001b[0;31m    def __init__(self, landmarks):\u001b[0m\n\u001b[0m                                  ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m incomplete input\n"
+          ]
+        }
+      ],
+      "source": [
+        "!pip install flask-ngrok\n",
+        "!ngrok authtoken '2ttoNOGGgwOJ6CMcrgMBam2FCvj_5tb6x2BhFRKnwtofPrz53'\n",
+        "!pip install mediapipe==0.10.5\n",
+        "!pip install numpy==1.24.0\n",
+        "!pip install opencv-python==4.5.5.64\n",
+        "!pip install pandas==1.3.5\n",
+        "\n",
+        "import mediapipe as mp\n",
+        "import numpy as np\n",
+        "import pandas as pd\n",
+        "import  cv\n",
+        "from utils import *\n",
+        "!pip install flask-ngrok\n",
+        "!ngrok authtoken '2ttoNOGGgwOJ6CMcrgMBam2FCvj_5tb6x2BhFRKnwtofPrz53'\n",
+        "!pip install mediapipe==0.10.5\n",
+        "!pip install numpy==1.24.0\n",
+        "!pip install opencv-python==4.5.5.64\n",
+        "!pip install pandas==1.3.5\n",
+        "\n",
+        "import mediapipe as mp\n",
+        "import numpy as np\n",
+        "import pandas as pd\n",
+        "import cv2 as cv\n",
+        "from utils import *\n",
+        "\n",
+        "class Body_Part_Angle :\n",
+        "  def __init__(self, landmarks):\n",
+        "    self.landmarks = landmarks\n",
+        "\n",
+        "  def angle_of_the_left_arm(self):\n",
+        "    l_shoulder = detection_body_parts(self, self.landmarks , \"Left_shoulder\")\n",
+        "    l_elbow = detection_body_parts(self, self.landmarks , \"Left_elbow\" )\n",
+        "    l_wrist = detection_body_parts(self, self.landmarks , \"Left_wrist\" )\n",
+        "    return calculate_angle(l_shoulder , l_elbow , l_wrist )\n",
+        "\n",
+        "  def angle_of_the_right_arm(self):\n",
+        "    r_shoulder = detection_body_parts(self, self.landmarks , \"Right_shoulder\")\n",
+        "    r_elbow = detection_body_parts(self, self.landmarks , \"Right_elbow\" )\n",
+        "    r_wrist = detection_body_parts(self, self.landmarks , \"Right_wrist\" )\n",
+        "    return calculate_angle(r_shoulder , r_elbow , r_wrist)\n",
+        "\n",
+        "  def angle_of_left_leg(self):\n",
+        "    l_hip = detection_body_parts(self, self.landmarks , \"Left_hip\")\n",
+        "    1_knee = detection_body_parts(self, self.landmarks , \"Left_knee\" )\n",
+        "    l_ankle = detection_body_parts(self, self.landmarks , \"Left_ankle\" )\n",
+        "    return calculate_angle(l_hip , l_knee , l_ankle)\n",
+        "\n",
+        "    def angle_of_right_leg(self):\n",
+        ""
+      ]
+    }
+  ]
+}
